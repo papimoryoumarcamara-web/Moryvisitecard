@@ -428,6 +428,7 @@
             '<button class="btn btn-primaire" type="button" data-action="vcf">' + icone("user-plus") + "Enregistrer</button>" +
             '<button class="btn" type="button" data-action="voir-profil">' + icone("user") + "Profil complet</button>" +
           "</div>" +
+          '<button class="btn btn-plein btn-partager" type="button" data-action="partager">' + icone("share") + "Partager l'appli</button>" +
         "</div>" +
       "</div>" +
       '<div class="dos-actions">' +
@@ -582,12 +583,15 @@
 
   /* QR en plein écran, fond blanc, écran maintenu allumé */
   var verrouEcran = null;
-  function ouvrirPleinEcran() {
-    var info = fabriquerQR(texteQR());
+  var AIDE_PLEIN = "Monte la luminosité au maximum · Touchez pour fermer";
+  /* Sans paramètre : QR de la carte (vCard). Avec : QR d'un autre texte (ex. invitation au site). */
+  function ouvrirPleinEcran(texte, titre, aide) {
+    var info = fabriquerQR(texte || texteQR());
     if (!info) { toast("QR trop long : choisis « Essentiel »."); return; }
     var o = $("#qr-plein");
     $(".qr-plein-boite", o).innerHTML = qrSVG(info);
-    $(".qr-plein-nom", o).textContent = nomComplet();
+    $(".qr-plein-nom", o).textContent = titre || nomComplet();
+    $(".qr-plein-aide", o).textContent = aide || AIDE_PLEIN;
     o.hidden = false;
     if (anim() !== "reduit") {
       o.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 240, easing: "ease-out" });
@@ -602,6 +606,41 @@
       if (verrouEcran) { verrouEcran.release().catch(function () {}); verrouEcran = null; }
     });
     $(".qr-plein-fermer", o).focus();
+  }
+
+  /* ------------------------------------------------------------------
+     9 bis. PARTAGER L'APPLI : inviter quelqu'un à découvrir la carte
+     ------------------------------------------------------------------ */
+  var LIEN_PUBLIC = "https://papimoryoumarcamara-web.github.io/Moryvisitecard/#v";
+  function lienInvitation() { return lienEnLigne() || LIEN_PUBLIC; }
+  function texteInvitation() {
+    return "Salut ! Découvre la carte de visite numérique de " + nomComplet() +
+      (profil.titre ? " – " + profil.titre + (profil.organisation ? ", " + profil.organisation : "") : "") +
+      ".\nCarte animée, QR code à scanner et contact à enregistrer. Elle s'installe comme une appli et marche même sans internet.\n\n" +
+      "Voir la carte : " + lienInvitation();
+  }
+  function optionPartage(action, ic, titre, detail) {
+    return '<button class="option-partage" type="button" data-action="' + action + '"><span class="option-ic">' + icone(ic) +
+      "</span><span><strong>" + esc(titre) + "</strong><small>" + esc(detail) + "</small></span></button>";
+  }
+  function ouvrirPartage() {
+    vibrer(10);
+    ouvrirFeuille('<div data-cascade>' +
+      '<h2 id="feuille-titre" class="partage-titre">Partager l\'appli</h2>' +
+      '<p class="partage-aide">Invite tes amis à découvrir ta carte et à l\'installer.</p>' +
+      '<div class="options-partage">' +
+        optionPartage("partage-invitation", "share", "Envoyer une invitation", "Message avec le lien de la carte (WhatsApp, SMS…)") +
+        optionPartage("partage-qr", "qr", "Montrer le QR du site", "Une personne à côté de toi le scanne pour ouvrir la carte") +
+        optionPartage("partage-copier", "copy", "Copier le lien", "Pour le coller où tu veux") +
+      "</div>" +
+      '<button class="btn btn-plein" type="button" data-action="fermer-feuille">Fermer</button>' +
+    "</div>");
+  }
+  function envoyerInvitation() {
+    var texte = texteInvitation(), titre = "Carte de visite de " + nomComplet();
+    var whatsapp = function () { window.open("https://wa.me/?text=" + encodeURIComponent(texte), "_blank"); };
+    if (navigator.share) navigator.share({ title: titre, text: texte }).catch(function (e) { if (e && e.name !== "AbortError") whatsapp(); });
+    else whatsapp();
   }
 
   /* ------------------------------------------------------------------
@@ -1184,6 +1223,13 @@
       case "voir-profil": aller("profil"); break;
       case "aller": demanderFermetureSiOuverte(); aller(b.dataset.vue); break;
       case "plein": ouvrirPleinEcran(); break;
+      case "partager": ouvrirPartage(); break;
+      case "partage-invitation": demanderFermeture(); envoyerInvitation(); break;
+      case "partage-copier": demanderFermeture(); copier(lienInvitation(), null); break;
+      case "partage-qr":
+        demanderFermeture();
+        setTimeout(function () { ouvrirPleinEcran(lienInvitation(), "Découvre ma carte", "Scanne avec l'appareil photo pour ouvrir ma carte · Touchez pour fermer"); }, 280);
+        break;
       case "vcf": exporterVCF(); break;
       case "png": exporterPNG(); break;
       case "svg": exporterSVG(); break;

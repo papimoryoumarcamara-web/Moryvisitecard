@@ -287,6 +287,16 @@ html[data-anim="spectaculaire"] .indice-main .ic, html[data-anim="sobre"] .indic
 .rond { display: flex; flex-direction: column; align-items: center; gap: 6px; color: var(--texte-2); font-size: 12.5px; font-weight: 600; text-decoration: none; }
 .rond span { width: 52px; height: 52px; border-radius: 50%; display: grid; place-items: center; background: var(--bg-elev); border: 1px solid var(--bordure); color: var(--primaire); box-shadow: 0 1px 2px rgba(8, 51, 68, .06); transition: transform var(--d-micro) var(--ease-sortie); }
 .rond:active span { transform: scale(.9); }
+/* Bouton et menu « Partager l'appli » */
+.btn-partager { background: linear-gradient(135deg, #0E7490, #0B5A70 55%, #15803D); color: #FFFFFF; border-color: transparent; }
+.partage-titre { font-size: 21px; font-weight: 600; }
+.partage-aide { color: var(--texte-2); font-size: 14px; margin: 2px 0 14px; }
+.options-partage { display: grid; gap: 10px; margin-bottom: 12px; }
+.option-partage { display: flex; align-items: center; gap: 14px; width: 100%; text-align: left; min-height: 64px; padding: 12px 14px; border-radius: 16px; border: 1px solid var(--bordure); background: var(--surface-2); transition: transform var(--d-micro) var(--ease-sortie); }
+.option-partage:active { transform: scale(.97); }
+.option-ic { width: 44px; height: 44px; border-radius: 13px; display: grid; place-items: center; flex: none; color: #FFFFFF; background: linear-gradient(135deg, #0E7490, #15803D); }
+.option-partage strong { display: block; font-size: 15px; }
+.option-partage small { display: block; font-size: 12.5px; color: var(--texte-2); }
 .dos-actions { display: grid; gap: 8px; justify-items: center; margin-top: 10px; min-height: 84px; transition: opacity 300ms var(--ease-sortie) 500ms, visibility 0s; }
 .scene-carte:not(.retournee) + .dos-actions { opacity: 0; visibility: hidden; transition: opacity 150ms, visibility 0s 150ms; }
 .dos-actions p { color: var(--texte-2); font-size: 14px; text-align: center; }

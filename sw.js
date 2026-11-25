@@ -4,7 +4,7 @@
    ensuite l'appli s'ouvre et fonctionne entièrement sans internet.
    >>> Après chaque modification publiée, augmenter VERSION (ex. v2). <<<
    ===================================================================== */
-const VERSION = "carte-moc-v2";
+const VERSION = "carte-moc-v3";
 
 const FICHIERS = [
   "./",
