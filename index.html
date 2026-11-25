@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Mory Oumar Camara · Carte</title>
+  <meta name="description" content="Carte de visite numérique de Mory Oumar Camara, étudiant en Management International à BEM Conakry.">
+  <meta name="theme-color" content="#0E7490" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#04161D" media="(prefers-color-scheme: dark)">
+  <!-- iPhone : appli plein écran depuis l'écran d'accueil -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Carte MOC">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="icons/favicon-64.png">
+  <link rel="manifest" href="manifest.webmanifest">
+  <!-- Polices embarquées (aucune police en ligne) -->
+  <link rel="preload" href="fonts/outfit.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/worksans.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+  <!-- ================= Sprite d'icônes SVG (aucun emoji) ================= -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <symbol id="i-card" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="3"/><circle cx="9" cy="11" r="2"/><path d="M14 10h4M14 14h4M6.5 16c.6-1.2 1.5-1.8 2.5-1.8s1.9.6 2.5 1.8"/></symbol>
+      <symbol id="i-user" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></symbol>
+      <symbol id="i-qr" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 14h3v3h-3zM20.5 14v.01M14 20.5h.01M17.5 20.5H21v-3"/></symbol>
+      <symbol id="i-scan" viewBox="0 0 24 24"><path d="M3 7V5a2 2 0 0 1 2-2h2M17 3h2a2 2 0 0 1 2 2v2M21 17v2a2 2 0 0 1-2 2h-2M7 21H5a2 2 0 0 1-2-2v-2M7 12h10"/></symbol>
+      <symbol id="i-book" viewBox="0 0 24 24"><path d="M5 4h11a3 3 0 0 1 3 3v13H8a3 3 0 0 1-3-3z"/><path d="M5 17a3 3 0 0 1 3-3h11M9 8h6"/></symbol>
+      <symbol id="i-settings" viewBox="0 0 24 24"><path d="M4 6h9M17 6h3M4 12h3M11 12h9M4 18h11M19 18h1"/><circle cx="15" cy="6" r="2"/><circle cx="9" cy="12" r="2"/><circle cx="17" cy="18" r="2"/></symbol>
+      <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></symbol>
+      <symbol id="i-chat" viewBox="0 0 24 24"><path d="M3 21l1.7-5A8.5 8.5 0 1 1 8 19.3z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5l1-1.5-2-1-1 .8a4 4 0 0 1-1.8-1.8l.8-1-1-2z"/></symbol>
+      <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></symbol>
+      <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></symbol>
+      <symbol id="i-link" viewBox="0 0 24 24"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></symbol>
+      <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></symbol>
+      <symbol id="i-share" viewBox="0 0 24 24"><path d="M12 3v12M8 7l4-4 4 4"/><path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-7"/></symbol>
+      <symbol id="i-flip" viewBox="0 0 24 24"><path d="M4 12a8 8 0 0 1 13.7-5.7L20 8.5M20 4v4.5h-4.5"/><path d="M20 12a8 8 0 0 1-13.7 5.7L4 15.5M4 20v-4.5h4.5"/></symbol>
+      <symbol id="i-copy" viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h8"/></symbol>
+      <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 5 5 9-10"/></symbol>
+      <symbol id="i-camera" viewBox="0 0 24 24"><path d="M4 8h3l2-3h6l2 3h3a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"/><circle cx="12" cy="13" r="3.5"/></symbol>
+      <symbol id="i-image" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><path d="m21 16-5-5-9 9"/></symbol>
+      <symbol id="i-trash" viewBox="0 0 24 24"><path d="M4 7h16M10 11v6M14 11v6M6 7l1 13h10l1-13M9 7V4h6v3"/></symbol>
+      <symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+      <symbol id="i-user-plus" viewBox="0 0 24 24"><circle cx="10" cy="8" r="4"/><path d="M3 21c1.3-3.6 4-5.5 7-5.5 1.5 0 2.9.4 4 1.2M19 14v6M16 17h6"/></symbol>
+      <symbol id="i-expand" viewBox="0 0 24 24"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></symbol>
+      <symbol id="i-leaf" viewBox="0 0 24 24"><path d="M5 21c0-9 5-15 15-16-1 10-7 15-15 16z"/><path d="m5 21 8-8"/></symbol>
+      <symbol id="i-spark" viewBox="0 0 24 24"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"/></symbol>
+      <symbol id="i-grad" viewBox="0 0 24 24"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c3 2.5 9 2.5 12 0v-5"/></symbol>
+      <symbol id="i-briefcase" viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2M3 13h18"/></symbol>
+      <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18"/></symbol>
+      <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></symbol>
+      <symbol id="i-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r=".6"/></symbol>
+      <symbol id="i-star" viewBox="0 0 24 24"><path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></symbol>
+      <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol>
+      <symbol id="i-back" viewBox="0 0 24 24"><path d="M19 12H5M11 18l-6-6 6-6"/></symbol>
+      <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></symbol>
+      <symbol id="i-edit" viewBox="0 0 24 24"><path d="M4 20h4L19 9l-4-4L4 16z"/><path d="m13.5 6.5 4 4"/></symbol>
+      <symbol id="i-tap" viewBox="0 0 24 24"><path d="M9 11.5V5a1.5 1.5 0 0 1 3 0v5.5"/><path d="M12 10V8.5a1.5 1.5 0 0 1 3 0V11"/><path d="M15 10.5a1.5 1.5 0 0 1 3 0V15a6 6 0 0 1-6 6h-.6a6 6 0 0 1-4.7-2.3l-2.4-3.1a1.5 1.5 0 0 1 2.3-1.9L9 15.5"/></symbol>
+      <symbol id="i-file" viewBox="0 0 24 24"><path d="M14 3H6a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V8z"/><path d="M14 3v5h5M9 13h6M9 17h6"/></symbol>
+    </defs>
+  </svg>
+
+  <!-- Décor d'ambiance (dégradés animés en transform uniquement) -->
+  <div class="ambiance" aria-hidden="true"><span class="orbe orbe-1"></span><span class="orbe orbe-2"></span></div>
+
+  <!-- ============================ SPLASH ============================ -->
+  <div id="splash" role="presentation">
+    <div class="splash-scene">
+      <div class="splash-logo" aria-hidden="true">
+        <span class="splash-anneau"></span>
+        <span class="splash-point"></span>
+        <span class="splash-lettres"><b>M</b><b>O</b><b>C</b></span>
+        <span class="splash-particules"></span>
+      </div>
+      <p class="splash-nom" aria-label="Mory Oumar Camara"></p>
+      <p class="splash-sous">Management International · BEM Conakry</p>
+    </div>
+    <button class="splash-passer" type="button">Passer</button>
+  </div>
+
+  <!-- ============================ EN-TÊTE ============================ -->
+  <header class="topbar">
+    <button class="icone-btn" id="btn-retour" type="button" aria-label="Retour" hidden><svg class="ic"><use href="#i-back"/></svg></button>
+    <div class="topbar-marque">
+      <span class="mini-logo" aria-hidden="true">MOC</span>
+      <h1 id="titre-vue">Ma carte</h1>
+    </div>
+    <button class="icone-btn" id="btn-reglages" type="button" aria-label="Paramètres"><svg class="ic"><use href="#i-settings"/></svg></button>
+  </header>
+
+  <!-- ============================ VUES ============================ -->
+  <main id="vues">
+    <section class="vue" id="vue-carte" data-titre="Ma carte" aria-label="Ma carte"></section>
+    <section class="vue" id="vue-profil" data-titre="Profil complet" aria-label="Profil complet" hidden></section>
+    <section class="vue" id="vue-qr" data-titre="Mon QR code" aria-label="Mon QR code" hidden></section>
+    <section class="vue" id="vue-scanner" data-titre="Scanner" aria-label="Scanner une carte" hidden></section>
+    <section class="vue" id="vue-carnet" data-titre="Carnet" aria-label="Carnet des cartes scannées" hidden></section>
+    <section class="vue" id="vue-reglages" data-titre="Paramètres" aria-label="Paramètres" hidden></section>
+  </main>
+
+  <!-- ====================== BARRE DE NAVIGATION ====================== -->
+  <nav class="tabbar" aria-label="Navigation principale">
+    <button type="button" data-vue="carte" aria-current="page"><svg class="ic"><use href="#i-card"/></svg><span>Carte</span></button>
+    <button type="button" data-vue="profil"><svg class="ic"><use href="#i-user"/></svg><span>Profil</span></button>
+    <button type="button" data-vue="qr" class="tab-qr"><svg class="ic"><use href="#i-qr"/></svg><span>QR</span></button>
+    <button type="button" data-vue="scanner" data-proprio><svg class="ic"><use href="#i-scan"/></svg><span>Scanner</span></button>
+    <button type="button" data-vue="carnet" data-proprio><svg class="ic"><use href="#i-book"/></svg><span>Carnet</span></button>
+    <span class="tab-indicateur" aria-hidden="true"></span>
+  </nav>
+
+  <!-- QR plein écran (fond blanc pur, écran maintenu allumé) -->
+  <div id="qr-plein" role="dialog" aria-modal="true" aria-label="QR code en plein écran" hidden>
+    <div class="qr-plein-boite"></div>
+    <p class="qr-plein-nom"></p>
+    <p class="qr-plein-aide">Monte la luminosité au maximum · Touchez pour fermer</p>
+    <button class="icone-btn qr-plein-fermer" type="button" aria-label="Fermer"><svg class="ic"><use href="#i-x"/></svg></button>
+  </div>
+
+  <!-- Feuille du bas (résultat de scan, détail du carnet) -->
+  <div id="feuille" hidden>
+    <div class="feuille-fond" data-fermer></div>
+    <div class="feuille-panneau" role="dialog" aria-modal="true" aria-labelledby="feuille-titre">
+      <span class="feuille-poignee" aria-hidden="true"></span>
+      <div class="feuille-contenu"></div>
+    </div>
+  </div>
+
+  <div id="toast" role="status" aria-live="polite"></div>
+
+  <noscript><p style="padding:24px">Active JavaScript pour afficher la carte.</p></noscript>
+
+  <script src="js/lib/qrcode.js"></script>
+  <script src="js/lib/jsQR.js" defer></script>
+  <script src="js/data.js"></script>
+  <script src="js/vcard.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
